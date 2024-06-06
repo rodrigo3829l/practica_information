@@ -1,0 +1,142 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+.container {
+    width: 90%; /* Cambia el ancho del contenedor principal para pantallas más pequeñas */
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezado */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+}
+
+.profile img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+}
+
+.info h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.info p {
+    margin: 5px 0 0;
+    color: gray;
+}
+
+.btn-imprimir {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Tareas */
+.tasks {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las columnas se envuelvan en pantallas más pequeñas */
+}
+
+.task-column {
+    flex: 1; /* Las columnas ocupan el mismo espacio */
+    background-color: #f7f7f7;
+    padding: 10px;
+    border-radius: 8px;
+    margin-right: 10px; /* Espacio entre columnas */
+    margin-bottom: 20px; /* Espacio inferior */
+}
+
+.task-column:last-child {
+    margin-right: 0; /* Elimina el margen derecho de la última columna */
+}
+
+.task-column h2 {
+    font-size: 18px;
+    margin-top: 0;
+}
+
+.task-card {
+    background-color: white;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    position: relative;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+
+.task-card.high-priority {
+    border-left: 5px solid red;
+}
+
+.task-card.medium-priority {
+    border-left: 5px solid rgba(240, 240, 10, 0.993);
+}
+
+.task-card.low-priority {
+    border-left: 5px solid green;
+}
+
+.delete-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/* Agregar tarea */
+.add-task {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.add-task h2 {
+    font-size: 18px;
+}
+
+.add-task input, .add-task select, .btn-agregar {
+    margin-bottom: 10px; /* Espacio inferior */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box; /* El padding y el borde se incluyen en el ancho */
+}
+
+.add-task select {
+    width: calc(50% - 5px); /* Ancho del 50% para pantallas más pequeñas */
+    margin-right: 10px; /* Espacio entre elementos */
+}
+
+.btn-agregar {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

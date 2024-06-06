@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Dashboard</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="profile">
+                <img src="https://res.cloudinary.com/dltytaqui/image/upload/v1717687532/tceqb1qmkwnpapu4q26d.png" alt="Profile Picture">
+                <div class="info">
+                    <h1>Rodrigo Del Angel Gerardo</h1>
+                    <p>Matrícula: 20210658<br>Grado: 9no 'A'</p>
+                </div>
+            </div>
+            <button class="btn-imprimir">Imprimir</button>
+        </div>
+        <div class="add-task">
+            <h2>Agregar Tarea</h2>
+            <input id="task-name" type="text" placeholder="Ingresa el nombre de la tarea">
+            <select id="task-priority">
+                <option value="alta">Alta</option>
+                <option value="media">Media</option>
+                <option value="baja">Baja</option>
+            </select>
+            <button class="btn-agregar" onclick="addTask()">Agregar Tarea</button>
+        </div><br>
+        <div class="tasks">
+            <div class="task-column high-priority">
+                <h2>Tareas de Alta Prioridad</h2>
+            </div>
+            <div class="task-column medium-priority">
+                <h2>Tareas de Prioridad Media</h2>
+            </div>
+            <div class="task-column low-priority">
+                <h2>Tareas de Baja Prioridad</h2>
+            </div>
+        </div>
+        
+    </div>
+
+    <script>
+        function addTask() {
+            const taskName = document.getElementById('task-name').value;
+            const taskPriority = document.getElementById('task-priority').value;
+            if (taskName === '') return alert('Por favor, ingrese el nombre de la tarea.');
+
+            const taskColumnClass = taskPriority === 'alta' ? 'high-priority' : taskPriority === 'media' ? 'medium-priority' : 'low-priority';
+            const taskColumn = document.querySelector(`.${taskColumnClass}`);
+
+            const taskCard = document.createElement('div');
+            taskCard.classList.add('task-card', taskColumnClass);
+            taskCard.innerHTML = `${taskName} <img src="https://cdn-icons-png.flaticon.com/512/14026/14026826.png" class="delete-icon" onclick="deleteTask(this)">`;
+
+            taskColumn.appendChild(taskCard);
+            document.getElementById('task-name').value = '';
+        }
+
+        function deleteTask(element) {
+            const taskCard = element.parentNode;
+            taskCard.parentNode.removeChild(taskCard);
+        }
+    </script>
+</body>
+</html>
